@@ -1,0 +1,7 @@
+{
+  "name": "VeduboxIonicProject",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
