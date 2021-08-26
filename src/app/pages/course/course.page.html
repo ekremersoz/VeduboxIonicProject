@@ -1,0 +1,13 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Kurslar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let course of courses">
+        <ion-label>{{course.courseName}}</ion-label><ion-button>Detay</ion-button><ion-button>Ekle</ion-button><ion-button>Güncelle</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
