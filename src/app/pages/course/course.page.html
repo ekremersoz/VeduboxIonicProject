@@ -5,9 +5,24 @@
   </ion-header>
   
   <ion-content>
+    
+
+
+
+
     <ion-list>
-      <ion-item *ngFor="let course of courses">
-        <ion-label>{{course.courseName}}</ion-label><ion-button>Detay</ion-button><ion-button>Ekle</ion-button><ion-button>Güncelle</ion-button>
-      </ion-item>
+      <ion-item-sliding *ngFor="let course of courses">
+        <ion-item>
+          <ion-label>{{course.courseName}}</ion-label>
+        </ion-item>
+        <ion-item-options side="start" (ionSwipe)="test()">
+          <ion-item-option (click)="test()" expandable>Detay Ekle</ion-item-option>
+          <ion-item-option color="secondary" (click)="test()">Detay Güncelle</ion-item-option>
+        </ion-item-options>
+        <ion-item-options side="end">
+          <ion-item-option color="warning" expandable>Detay </ion-item-option>
+          
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-list>
   </ion-content>

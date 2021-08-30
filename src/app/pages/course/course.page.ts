@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Course } from 'src/app/modules/course';
 import { CourseService } from 'src/app/services/course.service';
 
@@ -8,20 +9,24 @@ import { CourseService } from 'src/app/services/course.service';
   styleUrls: ['./course.page.scss'],
 })
 export class CoursePage implements OnInit {
-  courses:Course[];
+  courses: Course[];
 
 
-  constructor(private courseService:CourseService) { }
+  constructor(private courseService: CourseService, private toastController: ToastController) { }
 
   ngOnInit() {
     this.getCourses();
   }
 
 
-  getCourses(){
-    this.courseService.getCourse().subscribe(response =>{
+  getCourses() {
+    this.courseService.getCourse().subscribe(response => {
       this.courses = response.data;
     })
   }
 
 }
+
+
+
+
