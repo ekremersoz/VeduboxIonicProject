@@ -1,9 +1,53 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>student-add</ion-title>
+    <ion-title>Öğrenci Ekle</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+
+
+
+
+  <form [formGroup]="studentAddForm">
+    <ion-item lines="full">
+      <ion-label position="floating">Öğrenci Adı</ion-label>
+      <ion-input type="text" required
+      id="studentName"
+      formControlName="studentName"></ion-input>
+    </ion-item>
+
+
+
+    <ion-radio-group lines="full" formControlName="courseId">
+      <ion-list-header>
+        <ion-label>Kurs Seçiniz</ion-label>
+      </ion-list-header>
+
+      <ion-item *ngFor="let item of courses" >
+        <ion-label>{{item.courseName}}</ion-label>
+        <ion-radio slot="start"    [value]="item.courseId"></ion-radio>
+      </ion-item>
+      
+
+    </ion-radio-group>
+
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email Adresi</ion-label>
+      <ion-input type="email" required
+      id="email"
+      formControlName="email"></ion-input>
+    </ion-item>
+   
+  </form>
+
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="addStudent()">Öğrenci Ekle</ion-button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>
+
