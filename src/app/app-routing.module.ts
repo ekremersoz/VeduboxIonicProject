@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CourseDetailAddPage } from './pages/course-detail-add/course-detail-add.page';
+import { CourseDetailUpdatePage } from './pages/course-detail-update/course-detail-update.page';
+import { CourseDetailPage } from './pages/course-detail/course-detail.page';
+import { CoursePage } from './pages/course/course.page';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    component:CoursePage
   },
   {
     path: 'course',
@@ -34,6 +35,24 @@ const routes: Routes = [
   {
     path: 'student-detail',
     loadChildren: () => import('./pages/student-detail/student-detail.module').then( m => m.StudentDetailPageModule)
+  },
+  {
+    path: 'course-detail',
+    loadChildren: () => import('./pages/course-detail/course-detail.module').then( m => m.CourseDetailPageModule)
+  },
+  {path:"home" , component:CoursePage},
+  {path:"course/course-detail" , component:CourseDetailPage},
+  {path:"course-detail/GetCoruseDetailByCourseId/:courseId" , component:CourseDetailPage},
+  {path:"course-detail-add" , component:CourseDetailAddPage},
+  {path:"course-detail-add/GetCoruseDetailByCourseId/:courseId" , component:CourseDetailAddPage},
+  {path:"course-detail-update/GetCoruseDetailByCourseId/:courseId" , component:CourseDetailUpdatePage},
+  {
+    path: 'course-detail-add',
+    loadChildren: () => import('./pages/course-detail-add/course-detail-add.module').then( m => m.CourseDetailAddPageModule)
+  },
+  {
+    path: 'course-detail-update',
+    loadChildren: () => import('./pages/course-detail-update/course-detail-update.module').then( m => m.CourseDetailUpdatePageModule)
   },
 ];
 

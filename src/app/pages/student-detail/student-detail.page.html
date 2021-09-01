@@ -5,32 +5,34 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   
-
-
-
-<ion-item *ngFor="let data of studentsOfDetail">
-  <div slot="start" ></div>
-  <ion-label class="ion-text-wrap">
-    <h1>
-      {{ data.courseName }}
-      <span class="date">
-        <ion-note>{{data.courseFinishDate | date: "dd/MM/yyyy"}}</ion-note>
-        <ion-icon size="small"></ion-icon>
-      </span>
-      <span class="date">
+  <ion-item *ngFor="let data of studentsOfDetail">
+    <div slot="start"></div>
+    <ion-label class="ion-text-wrap">
+      <h1>
+        {{ data.courseName }}
+       
+        
+      </h1>
+      <h2>{{ data.teacherName }}</h2>
+      <p>Öğrenci:{{data.studentName}}</p>
+      <p>Öğrenci Email: {{data.studentEmail}}</p>
+      <p>Kurs Başlangıç Tarihi:<span >
         <ion-note>{{data.courseStartDate | date: "dd/MM/yyyy"}}</ion-note>
         <ion-icon size="small"></ion-icon>
-      </span>
-    </h1>
-    <h2>{{ data.teacherName }}</h2>
-    <p>
-     Öğrenci:{{data.studentName}} 
-    </p>
-    <p>
-      Email: {{data.studentEmail}}
-     </p>
-  </ion-label>
+        <p>Kurs Bitiş Tarihi:<span>
+          <ion-note>{{data.courseFinishDate | date: "dd/MM/yyyy"}}</ion-note>
+          <ion-icon size="small"></ion-icon>
+        </span></p>
+      </span></p>
+    </ion-label>
   </ion-item>
-  
 </ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kurs Detay Ekle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  
+  <form [formGroup]="courseDetailAddForm">
+    <ion-item lines="full">
+      <ion-label position="floating">Kurs Başlığı</ion-label>
+      <ion-input type="text" required
+      id="courseHeader"
+      formControlName="courseHeader"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Kurs Detayları</ion-label>
+      <ion-input type="text" required
+      id="courseCurriculum"
+      formControlName="courseCurriculum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Kurs Açıklaması</ion-label>
+      <ion-input type="text" required
+      id="courseDescription"
+      formControlName="courseDescription"></ion-input>
+    </ion-item>
+   
+  </form>
+
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="addCourseDetail()"[routerLink]="['/course']">Kurs Detay Ekle</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

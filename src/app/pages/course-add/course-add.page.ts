@@ -12,6 +12,11 @@ import { ToastController } from '@ionic/angular';
 })
 export class CourseAddPage implements OnInit {
 
+  ionViewDidEnter() {
+    this.createCourseAddForm();
+    this.getTeachers();
+  }
+
   teachers:Teacher[]= [];
   courseAddForm:FormGroup;
   
@@ -22,13 +27,21 @@ export class CourseAddPage implements OnInit {
 
 
   ngOnInit() {
+
+    this.createCourseAddForm();
+    this.getTeachers();
+  
+  }
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
     this.createCourseAddForm();
     this.getTeachers();
   }
-
-
-  
-
  
   createCourseAddForm(){
     this.courseAddForm = this.formBuilder.group({

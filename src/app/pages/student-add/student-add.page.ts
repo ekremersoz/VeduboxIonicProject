@@ -10,6 +10,11 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./student-add.page.scss'],
 })
 export class StudentAddPage implements OnInit {
+  ionViewDidEnter() {
+    this.createStudentAddForm();
+    this.getAllCourse();
+  
+}
 
   courses:Course[] = [];
   studentAddForm: FormGroup;
@@ -17,8 +22,25 @@ export class StudentAddPage implements OnInit {
 
   ngOnInit() {
     this.createStudentAddForm();
-    this.getAllCourse()
+    this.getAllCourse();
   }
+
+  
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+    this.createStudentAddForm();
+    this.getAllCourse();
+    
+  }
+
+
+
+
 
   getAllCourse(){
     this.courseService.getCourse().subscribe(response =>{

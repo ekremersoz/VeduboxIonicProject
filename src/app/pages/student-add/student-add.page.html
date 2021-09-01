@@ -7,7 +7,14 @@
 <ion-content>
 
 
-
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
 
 
   <form [formGroup]="studentAddForm">
@@ -45,7 +52,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-button (click)="addStudent()">Öğrenci Ekle</ion-button>
+      <ion-button (click)="addStudent()" [routerLink]="['/student-detail']">Öğrenci Ekle</ion-button>
     </ion-col>
   </ion-row>
 

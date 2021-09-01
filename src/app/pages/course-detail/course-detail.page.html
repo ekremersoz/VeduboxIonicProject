@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kurs Detayları</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  
+  <div class="bg-light p-5 rounded mt-5" *ngIf="courseDetail">
+    <h1>{{ courseDetail.courseHeader }}</h1>
+    <h5>Kurs İçeriği</h5>
+    <p>{{ courseDetail.courseCurriculum }}</p>
+  </div>
+
+  <div class="bg-light p-5 rounded mt-3" *ngIf="courseDetail">
+    <h1>Kurs Açıklaması</h1>
+    <p>{{ courseDetail.courseDescription }}</p>
+  </div>
+
+
+  <div class="bg-light p-5 rounded mt-5" *ngIf="!courseDetail">
+    <h2>Kurs Detay Bilgisi Bulunmamaktadır..</h2>
+</div>
+</ion-content>

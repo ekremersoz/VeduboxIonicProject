@@ -7,12 +7,13 @@ import { FormGroup, ReactiveFormsModule, FormsModule, FormBuilder } from '@angul
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CoursePageModule } from './pages/course/course.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , HttpClientModule, FormsModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,CoursePageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

@@ -9,6 +9,11 @@ import { StudentDetailService } from 'src/app/services/student-detail.service';
 })
 export class StudentDetailPage implements OnInit {
 
+
+  ionViewDidEnter() {
+    this.getStudentDetail(); 
+}
+
   studentsOfDetail:StudentDetail[];
   constructor(private studentDetailService:StudentDetailService) { }
 
@@ -16,11 +21,24 @@ export class StudentDetailPage implements OnInit {
     this.getStudentDetail();
   }
 
+ 
+
 
   getStudentDetail(){
     this.studentDetailService.getStudentDetail().subscribe(response =>{
       this.studentsOfDetail = response.data;
     })
+  }
+
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+    this.getStudentDetail();
   }
 
 }

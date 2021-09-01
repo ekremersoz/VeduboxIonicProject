@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kurs Detay Güncelle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="courseDetailUpdateForm">
+
+    <ion-item lines="full">
+      <ion-label position="floating">Kurs Id</ion-label>
+      <ion-input type="text" required
+      id="courseId"
+      formControlName="courseId" [(ngModel)]="courseId"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item lines="full">
+      <ion-label position="floating">Kurs Başlığı</ion-label>
+      <ion-input type="text" required
+      id="courseHeader"
+      formControlName="courseHeader" [(ngModel)]="courseHeader"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Kurs Detayları</ion-label>
+      <ion-input type="text" required
+      id="courseCurriculum"
+      formControlName="courseCurriculum" [(ngModel)]="courseCurriculum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Kurs Açıklaması</ion-label>
+      <ion-input type="text" required
+      id="courseDescription"
+      formControlName="courseDescription" [(ngModel)]="courseDescription"></ion-input>
+    </ion-item>
+   
+  </form>
+
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="updateCourseDetail()" [routerLink]="['/course']">Kurs Detay Güncelle</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

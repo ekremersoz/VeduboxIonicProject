@@ -3,10 +3,17 @@
       <ion-title>Kurslar</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content>
     
-
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="chevron-down-circle-outline"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
 
 
 
@@ -16,13 +23,19 @@
           <ion-label>{{course.courseName}}</ion-label>
         </ion-item>
         <ion-item-options side="start" (ionSwipe)="test()">
-          <ion-item-option (click)="test()" expandable>Detay Ekle</ion-item-option>
-          <ion-item-option color="secondary" (click)="test()">Detay Güncelle</ion-item-option>
+          <ion-item-option routerLink="/course-detail-add/GetCoruseDetailByCourseId/{{
+            course.courseId}}" expandable>Detay Ekle</ion-item-option>
+          <ion-item-option color="secondary" routerLink="/course-detail-update/GetCoruseDetailByCourseId/{{
+            course.courseId}}">Detay Güncelle</ion-item-option>
         </ion-item-options>
         <ion-item-options side="end">
-          <ion-item-option color="warning" expandable>Detay </ion-item-option>
+          <ion-item-option routerLink="/course-detail/GetCoruseDetailByCourseId/{{
+            course.courseId}}" color="warning" expandable>Detay </ion-item-option>
           
         </ion-item-options>
+
+       
+
       </ion-item-sliding>
     </ion-list>
   </ion-content>

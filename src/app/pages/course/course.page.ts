@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { Course } from 'src/app/modules/course';
 import { CourseService } from 'src/app/services/course.service';
 
@@ -9,12 +9,27 @@ import { CourseService } from 'src/app/services/course.service';
   styleUrls: ['./course.page.scss'],
 })
 export class CoursePage implements OnInit {
+  
+  ionViewDidEnter() {
+    this.getCourses();
+  }
   courses: Course[];
 
 
-  constructor(private courseService: CourseService, private toastController: ToastController) { }
+  constructor(private courseService: CourseService , private navControl:NavController) { }
 
   ngOnInit() {
+    this.getCourses();
+  }
+
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
     this.getCourses();
   }
 
